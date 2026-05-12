@@ -1,0 +1,37 @@
+<div class="view-options">
+  <button matIconButton [class.selected]="viewMode() === 'grid'" (click)="viewMode.set('grid')">
+    <mat-icon>grid_view</mat-icon>
+  </button>
+  <button matIconButton [class.selected]="viewMode() === 'list'" (click)="viewMode.set('list')">
+    <mat-icon>list</mat-icon>
+  </button>
+</div>
+@if (viewMode() === 'grid') {
+  <div class="card-container">
+    @for (game of games(); track game.id) {
+      <game-card [game]="game"></game-card>
+    }
+  </div>
+} @else if (viewMode() === 'list') {
+  <div class="grid-container headers">
+    <div>Nombre</div>
+    <div>Puntuación</div>
+    <div>Lanzamiento</div>
+    <div> <mat-icon>stadia_controller</mat-icon> Plataformas</div>
+    <div><mat-icon>category</mat-icon> Géneros</div>
+  </div>
+  @for (game of games(); track game.id) {
+    <game-grid [game]="game" class="grid-container">{{ game.name }}</game-grid>
+  }
+}
+<div class="bottom-actions">
+  @if (gamesResource.isLoading()) {
+    <div class="loading-message">
+      <mat-spinner [diameter]="20"></mat-spinner>
+      Cargando datos
+    </div>
+  }
+  @if (gamesResource.hasValue() && gamesResource.value().next) {
+    <button matButton="outlined" (click)="loadNextPage()">Cargar Más</button>
+  }
+</div>

@@ -1,0 +1,3 @@
+@for (star of [1,2,3,4,5]; track $index) {
+    <mat-icon [class.filled]="(rating() - star) > -0.5">star</mat-icon>
+}

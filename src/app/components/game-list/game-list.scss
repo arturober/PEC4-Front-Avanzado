@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+
+button.selected {
+  @include mat.icon-overrides(
+    (
+      color: var(--mat-sys-primary),
+    )
+  );
+}
+
+.view-options {
+  display: flex;
+  padding: 1rem;
+  justify-content: end;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  //   border-image: linear-gradient(to right, transparent, var(--mat-sys-secondary) 20%, var(--mat-sys-secondary) 80%, transparent 100%);
+  border-image: linear-gradient(
+      to right,
+      transparent,
+      var(--mat-sys-outline-variant) 20%,
+      var(--mat-sys-outline-variant) 80%,
+      transparent 100%
+    )
+    1;
+}
+
+.loading-message {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font: var(--mat-sys-body-large);
+  letter-spacing: var(--mat-sys-body-large-tracking);
+  color: color-mix(in srgb, var(--mat-sys-primary) 50%, transparent);
+}
+
+.bottom-actions {
+    margin-block: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+game-card, game-grid {
+    cursor: pointer;
+}
+
+game-grid {
+  padding-block: 0.5rem;
+
+  &:nth-child(even) {
+    background-color: #EEE;
+  }
+}

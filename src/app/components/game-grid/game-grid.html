@@ -1,0 +1,11 @@
+<div>
+  {{ game().name }}
+</div>
+<div><star-rating [rating]="game().rating"></star-rating> ({{ game().rating }})</div>
+<div>{{ game().released | intlDate: 'es-ES' : 'long' }}</div>
+<div class="flex-center">
+  {{ platforms() }}
+</div>
+<div class="flex-center">
+  {{ genres() }}
+</div>

@@ -1,0 +1,20 @@
+<mat-card appearance="raised">
+  <mat-card-header>
+    <mat-card-title>{{ game().name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="game().background_image" alt="Imagen del juego" />
+  <mat-card-content>
+    <div class="flex-center">
+      <star-rating [rating]="game().rating"></star-rating> ({{ game().rating }})
+    </div>
+    <div><strong>Lanzamiento:</strong> {{game().released | intlDate:'es-ES':'long'}}</div>
+    <div class="flex-center">
+        <mat-icon>stadia_controller</mat-icon>
+        {{platforms()}}
+    </div>
+    <div class="flex-center">
+        <mat-icon>category</mat-icon>
+        {{genres()}}
+    </div>
+  </mat-card-content>
+</mat-card>

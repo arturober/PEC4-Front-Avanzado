@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +9,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('PEC4-Proyecto2_ArturoBernalMayordomo');
+  readonly #matIconReg = inject(MatIconRegistry);
+
+  constructor() {
+    this.#matIconReg.setDefaultFontSetClass('material-symbols-outlined');
+  }
 }
