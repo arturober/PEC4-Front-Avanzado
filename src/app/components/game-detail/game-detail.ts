@@ -9,6 +9,7 @@ import { IntlDatePipe } from '../../pipes/intl-date-pipe';
 import { GameService } from '../../services/game-service';
 import { StarRating } from '../star-rating/star-rating';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatDivider, MatList, MatListItem } from '@angular/material/list';
 
 @Component({
   selector: 'app-game-detail',
@@ -22,6 +23,9 @@ import { MatTab, MatTabGroup } from '@angular/material/tabs';
     IntlDatePipe,
     MatTabGroup,
     MatTab,
+    MatList,
+    MatListItem,
+    MatDivider,
   ],
   templateUrl: './game-detail.html',
   styleUrl: './game-detail.scss',

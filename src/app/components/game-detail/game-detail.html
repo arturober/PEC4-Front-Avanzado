@@ -25,22 +25,37 @@
         <star-rating [rating]="gameInfo.rating"></star-rating> ({{ gameInfo.rating }})
       </div>
       <h3>Fecha de lanzamiento</h3>
-      <p>{{gameInfo.released | intlDate:'es-ES':'long'}}</p>
+      <p>{{ gameInfo.released | intlDate: 'es-ES' : 'long' }}</p>
       <mat-tab-group>
         <mat-tab label="Platforms">
-          @for (platform of gameInfo.platforms; track platform.platform.id) {
-
-          }
+          <mat-list role="list">
+            @for (platform of gameInfo.platforms; track platform.platform.id) {
+              <mat-list-item role="listitem">{{ platform.platform.name }}</mat-list-item>
+              @if (!$last) {
+                <mat-divider></mat-divider>
+              }
+            }
+          </mat-list>
         </mat-tab>
         <mat-tab label="Stores">
-          @for (store of gameInfo.stores; track store.store.id) {
-
-          }
+          <mat-list role="list">
+            @for (store of gameInfo.stores; track store.store.id) {
+              <mat-list-item role="listitem">{{ store.store.name }}</mat-list-item>
+              @if (!$last) {
+                <mat-divider></mat-divider>
+              }
+            }
+          </mat-list>
         </mat-tab>
         <mat-tab label="Developers">
-          @for (developer of gameInfo.developers; track developer.id) {
-
-          }
+          <mat-list role="list">
+            @for (developer of gameInfo.developers; track developer.id) {
+              <mat-list-item role="listitem">{{ developer.name }}</mat-list-item>
+              @if (!$last) {
+                <mat-divider></mat-divider>
+              }
+            }
+          </mat-list>
         </mat-tab>
       </mat-tab-group>
     }
