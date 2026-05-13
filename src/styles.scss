@@ -71,3 +71,17 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
 }
+
+.loading-message {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font: var(--mat-sys-body-large);
+  letter-spacing: var(--mat-sys-body-large-tracking);
+  color: color-mix(in srgb, var(--mat-sys-primary) 50%, transparent);
+}
+
+mat-snack-bar-container.error {
+  --mat-snack-bar-container-color: var(--mat-sys-error);
+  --mat-snack-bar-button-color: var(--mat-sys-on-error);
+}

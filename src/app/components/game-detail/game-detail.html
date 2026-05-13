@@ -1,1 +1,48 @@
-<p>game-detail works!</p>
+@if (gameResource.isLoading()) {
+  <div class="loading-message">
+    <mat-spinner [diameter]="20"></mat-spinner>
+    Cargando datos
+  </div>
+} @else if (gameResource.hasValue()) {
+  @let gameInfo = game()!;
+  <mat-toolbar>
+    <span>{{ gameInfo.name }}</span>
+    <span class="spacer"></span>
+    <a matButton aria-label="Volver" [routerLink]="['/games']">
+      <mat-icon>arrow_back</mat-icon>
+      Volver
+    </a>
+  </mat-toolbar>
+  <div>
+    @if (!showDetails()) {
+      <button matButton (click)="showDetails.set(true)">Mostrar detalles</button>
+    } @else {
+      <img [src]="gameInfo.background_image" class="game-image" alt="Imagen del juego" />
+      <h3>Descripción</h3>
+      <p>{{ gameInfo.description_raw }}</p>
+      <h3>Valoración</h3>
+      <div class="flex-center">
+        <star-rating [rating]="gameInfo.rating"></star-rating> ({{ gameInfo.rating }})
+      </div>
+      <h3>Fecha de lanzamiento</h3>
+      <p>{{gameInfo.released | intlDate:'es-ES':'long'}}</p>
+      <mat-tab-group>
+        <mat-tab label="Platforms">
+          @for (platform of gameInfo.platforms; track platform.platform.id) {
+
+          }
+        </mat-tab>
+        <mat-tab label="Stores">
+          @for (store of gameInfo.stores; track store.store.id) {
+
+          }
+        </mat-tab>
+        <mat-tab label="Developers">
+          @for (developer of gameInfo.developers; track developer.id) {
+
+          }
+        </mat-tab>
+      </mat-tab-group>
+    }
+  </div>
+}

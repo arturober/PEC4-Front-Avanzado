@@ -9,7 +9,7 @@
 @if (viewMode() === 'grid') {
   <div class="card-container">
     @for (game of games(); track game.id) {
-      <game-card [game]="game"></game-card>
+      <game-card [game]="game" role="link" (click)="goDetail(game.id)"></game-card>
     }
   </div>
 } @else if (viewMode() === 'list') {
@@ -21,7 +21,7 @@
     <div><mat-icon>category</mat-icon> Géneros</div>
   </div>
   @for (game of games(); track game.id) {
-    <game-grid [game]="game" class="grid-container">{{ game.name }}</game-grid>
+    <game-grid [game]="game" class="grid-container" role="link" (click)="goDetail(game.id)">{{ game.name }}</game-grid>
   }
 }
 <div class="bottom-actions">

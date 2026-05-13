@@ -1,6 +1,6 @@
 import { httpResource } from '@angular/common/http';
 import { Injectable, Signal } from '@angular/core';
-import { GameListRepsonse } from '../model/game';
+import { Game, GameListRepsonse } from '../model/game';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +11,9 @@ export class GameService {
       const params = new URLSearchParams({ page: String(page()), page_size: String(pageSize()) });
       return `games?${params}`;
     });
+  }
+
+  getGameDetailResource(id: Signal<number>) {
+    return httpResource<Game>(() => `games/${id()}`);
   }
 }

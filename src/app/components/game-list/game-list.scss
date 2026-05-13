@@ -25,15 +25,6 @@ button.selected {
     1;
 }
 
-.loading-message {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  font: var(--mat-sys-body-large);
-  letter-spacing: var(--mat-sys-body-large-tracking);
-  color: color-mix(in srgb, var(--mat-sys-primary) 50%, transparent);
-}
-
 .bottom-actions {
     margin-block: 1rem;
     display: flex;

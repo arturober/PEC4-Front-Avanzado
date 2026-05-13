@@ -6,6 +6,7 @@ import { Game, GameListRepsonse } from '../../model/game';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { GameCard } from '../game-card/game-card';
 import { GameGrid } from "../game-grid/game-grid";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-list',
@@ -15,6 +16,7 @@ import { GameGrid } from "../game-grid/game-grid";
 })
 export class GameList {
   readonly #gameService = inject(GameService);
+  readonly #router = inject(Router);
 
   readonly page = signal(1);
   readonly pageSize = signal(12);
@@ -32,5 +34,9 @@ export class GameList {
 
   loadNextPage() {
     this.page.update((p) => p + 1);
+  }
+
+  goDetail(id: number) {
+    this.#router.navigate(['/games', id]);
   }
 }
