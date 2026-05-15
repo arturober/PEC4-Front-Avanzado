@@ -6,15 +6,15 @@
   "start_url": "./",
   "screenshots": [
     {
-      "src": "screenshot-desktop.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
+      "src": "screenshot-desktop.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
       "form_factor": "wide"
     },
     {
-      "src": "screenshot-mobile.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
+      "src": "screenshot-mobile.webp",
+      "sizes": "412x915",
+      "type": "image/webp",
       "form_factor": "narrow"
     }
   ],
